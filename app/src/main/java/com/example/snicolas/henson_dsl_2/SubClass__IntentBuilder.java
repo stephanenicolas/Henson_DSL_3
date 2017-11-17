@@ -17,8 +17,7 @@ public class SubClass__IntentBuilder {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
         final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);
-        final SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> rs1 = new SuperClass__IntentBuilder.RequiredSequence<>(bundle, allSet);
-        rs0 = new RequiredSequence<>(bundle, rs1);
+        rs0 = new RequiredSequence<>(bundle, allSet);
     }
 
     public SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> t(String s) {
@@ -31,14 +30,17 @@ public class SubClass__IntentBuilder {
         }
     }
 
-    public static class RequiredSequence<ALL_REQUIRED_SET_STATE extends AllSet> extends RequiredStateSequence<SuperClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE>> {
-        public RequiredSequence(Bundle bundle, SuperClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE> allRequiredSetState) {
+    public static class RequiredSequence<ALL_REQUIRED_SET_STATE extends AllSet> extends RequiredStateSequence<ALL_REQUIRED_SET_STATE> {
+        final SuperClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE> parentRs;
+
+        public RequiredSequence(Bundle bundle, ALL_REQUIRED_SET_STATE allRequiredSetState) {
             super(bundle, allRequiredSetState);
+            parentRs = new SuperClass__IntentBuilder.RequiredSequence<>(bundle, allRequiredSetState);
         }
 
         public SuperClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE> t(String t) {
             bundle.putString("t", t);
-            return allRequiredSetState;
+            return parentRs;
         }
     }
 
