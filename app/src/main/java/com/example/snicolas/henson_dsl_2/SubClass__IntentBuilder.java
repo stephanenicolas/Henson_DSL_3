@@ -9,16 +9,13 @@ import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClass
 
 public class SubClass__IntentBuilder {
 
-    private Bundle bundle = new Bundle();
-    private Intent intent;
-
-    private SubClass__IntentBuilderRequiredSequence<SuperClass__IntentBuilderRequiredSequence<AllSet>> rs0;
-    private SuperClass__IntentBuilderRequiredSequence<AllSet> rs1;
+    private final SubClass__IntentBuilderRequiredSequence<SuperClass__IntentBuilderRequiredSequence<AllSet>> rs0;
 
     public SubClass__IntentBuilder(Context context) {
-        intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
-        AllSet allSet = new AllSet(bundle, intent);
-        rs1 = new SuperClass__IntentBuilderRequiredSequence<>(bundle, allSet);
+        final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
+        final Bundle bundle = new Bundle();
+        final AllSet allSet = new AllSet(bundle, intent);
+        final SuperClass__IntentBuilderRequiredSequence<AllSet> rs1 = new SuperClass__IntentBuilderRequiredSequence<>(bundle, allSet);
         rs0 = new SubClass__IntentBuilderRequiredSequence<>(bundle, rs1);
     }
 
