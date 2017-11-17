@@ -4,16 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import static com.example.snicolas.henson_dsl_2.ActivityClassFinder.getClassDynamically;
+
 
 public class SuperClass__IntentBuilder {
 
     private Bundle bundle = new Bundle();
     private SuperClass__IntentBuilderPart<AllSet> part;
+    private final Intent intent;
 
     public SuperClass__IntentBuilder(Context context) {
-        AllSet allSet = new AllSet(bundle);
-        part = new SuperClass__IntentBuilderPart<>(context, allSet);
-        allSet.setIntent(part.getIntent());
+        intent = new Intent(context, getClassDynamically("com.example.module1.Foo"));
+        AllSet allSet = new AllSet(bundle, intent);
+        part = new SuperClass__IntentBuilderPart<>(bundle, allSet);
     }
 
     public SuperClass__IntentBuilder.AllSet s(String s) {
@@ -24,11 +27,8 @@ public class SuperClass__IntentBuilder {
         protected final Bundle bundle;
         protected Intent intent;
 
-        public AllSet(Bundle bundle) {
+        public AllSet(Bundle bundle, Intent intent) {
             this.bundle = bundle;
-        }
-
-        public void setIntent(Intent intent) {
             this.intent = intent;
         }
 

@@ -9,21 +9,16 @@ import static com.example.snicolas.henson_dsl_2.ActivityClassFinder.getClassDyna
 
 public class SubClass__IntentBuilderPart<ALL_SET_STATE> {
 
-    private Intent intent;
     private final ALL_SET_STATE allSetState;
-    private Bundle bundle = new Bundle();
+    protected final Bundle bundle;
 
-    public SubClass__IntentBuilderPart(Context context, ALL_SET_STATE allSetState) {
-        intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
+    public SubClass__IntentBuilderPart(Bundle bundle, ALL_SET_STATE allSetState) {
+        this.bundle = bundle;
         this.allSetState = allSetState;
     }
 
     public ALL_SET_STATE t(String s) {
         bundle.putString("t", s);
         return allSetState;
-    }
-
-    public Intent getIntent() {
-        return intent;
     }
 }
