@@ -7,27 +7,31 @@ import android.os.Bundle;
 
 public class SuperClass__IntentBuilder {
 
-    private Intent intent;
     private Bundle bundle = new Bundle();
+    private SuperClass__IntentBuilderPart<AllSet> part;
 
     public SuperClass__IntentBuilder(Context context) {
-        intent = new Intent(context, getClassDynamically("com.example.module1.Foo"));
-    }
-
-    public Class getClassDynamically(String className) {
-        try {
-            return Class.forName(className);
-        } catch(Exception ex) {
-            throw new RuntimeException(ex);
-        }
+        AllSet allSet = new AllSet(bundle);
+        part = new SuperClass__IntentBuilderPart<>(context, allSet);
+        allSet.setIntent(part.getIntent());
     }
 
     public SuperClass__IntentBuilder.AllSet s(String s) {
-        bundle.putString("s", s);
-        return new SuperClass__IntentBuilder.AllSet();
+        return part.s(s);
     }
 
-    public class AllSet {
+    public static class AllSet {
+        protected final Bundle bundle;
+        protected Intent intent;
+
+        public AllSet(Bundle bundle) {
+            this.bundle = bundle;
+        }
+
+        public void setIntent(Intent intent) {
+            this.intent = intent;
+        }
+
         public AllSet a(int a ) {
             bundle.putInt("a", a);
             return this;

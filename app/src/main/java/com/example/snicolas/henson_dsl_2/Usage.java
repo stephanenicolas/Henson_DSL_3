@@ -8,9 +8,17 @@ public class Usage {
 
     public static void main() {
 
-    new SuperClass__IntentBuilder(null)
-            .s("a")
-            .a(0)
-            .build();
+        new SuperClass__IntentBuilder(null)
+                .s("a")
+                .a(0)
+                .build();
+
+        new SubClass__IntentBuilder(null)
+                .t("t")
+                .s("a")
+                .b(0)
+                .a(1)
+                .build();
     }
+
 }
