@@ -17,8 +17,8 @@ public class SubSubClass__IntentBuilder {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
         final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);
-        final SuperClass__IntentBuilder.RequiredSequence rs2 = new SuperClass__IntentBuilder.RequiredSequence<>(bundle, allSet);
-        final SubClass__IntentBuilder.RequiredSequence rs1 = new SubClass__IntentBuilder.RequiredSequence<>(bundle, rs2);
+        final SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> rs2 = new SuperClass__IntentBuilder.RequiredSequence<>(bundle, allSet);
+        final SubClass__IntentBuilder.RequiredSequence<ResolvedAllSet> rs1 = new SubClass__IntentBuilder.RequiredSequence<>(bundle, rs2);
         rs0 = new RequiredSequence<>(bundle, rs1);
     }
 
@@ -33,8 +33,6 @@ public class SubSubClass__IntentBuilder {
     }
 
     public static class RequiredSequence<ALL_REQUIRED_SET_STATE extends AllSet> extends RequiredStateSequence<SubClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE>> {
-
-
         public RequiredSequence(Bundle bundle, SubClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE> allRequiredSetState) {
             super(bundle, allRequiredSetState);
         }

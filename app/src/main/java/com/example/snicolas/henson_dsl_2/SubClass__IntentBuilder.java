@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.snicolas.henson_dsl_2.lib.AllRequiredSetState;
 import com.example.snicolas.henson_dsl_2.lib.RequiredStateSequence;
-import com.example.snicolas.henson_dsl_2.lib.State;
 
 import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClassDynamically;
 
@@ -34,8 +32,6 @@ public class SubClass__IntentBuilder {
     }
 
     public static class RequiredSequence<ALL_REQUIRED_SET_STATE extends AllSet> extends RequiredStateSequence<SuperClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE>> {
-
-
         public RequiredSequence(Bundle bundle, SuperClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE> allRequiredSetState) {
             super(bundle, allRequiredSetState);
         }
