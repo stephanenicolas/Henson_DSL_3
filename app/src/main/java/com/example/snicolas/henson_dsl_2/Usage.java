@@ -1,9 +1,5 @@
 package com.example.snicolas.henson_dsl_2;
 
-/**
- * Created by snicolas on 11/16/17.
- */
-
 public class Usage {
 
     public static void main() {

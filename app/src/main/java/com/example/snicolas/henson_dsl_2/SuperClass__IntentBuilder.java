@@ -30,12 +30,13 @@ public class SuperClass__IntentBuilder {
         }
     }
 
-    public static class RequiredSequence<ALL_REQUIRED_SET_STATE extends SuperClass__IntentBuilder.AllSet> extends RequiredStateSequence<ALL_REQUIRED_SET_STATE> {
-        public RequiredSequence(Bundle bundle, ALL_REQUIRED_SET_STATE allRequiredSetState) {
+    public static class RequiredSequence<ALL_SET extends SuperClass__IntentBuilder.AllSet>
+            extends RequiredStateSequence<ALL_SET> {
+        public RequiredSequence(Bundle bundle, ALL_SET allRequiredSetState) {
             super(bundle, allRequiredSetState);
         }
 
-        public ALL_REQUIRED_SET_STATE s(String s) {
+        public ALL_SET s(String s) {
             bundle.putString("s", s);
             return allRequiredSetState;
         }

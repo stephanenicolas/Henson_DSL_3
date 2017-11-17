@@ -24,21 +24,22 @@ public class SubClass__IntentBuilder {
         return rs0.t(s);
     }
 
-    public class ResolvedAllSet extends AllSet<ResolvedAllSet> {
+    public static class ResolvedAllSet extends AllSet<ResolvedAllSet> {
         public ResolvedAllSet(Bundle bundle, Intent intent) {
             super(bundle, intent);
         }
     }
 
-    public static class RequiredSequence<ALL_REQUIRED_SET_STATE extends AllSet> extends RequiredStateSequence<ALL_REQUIRED_SET_STATE> {
-        final SuperClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE> parentRs;
+    public static class RequiredSequence<ALL_SET extends AllSet>
+            extends RequiredStateSequence<ALL_SET> {
+        final SuperClass__IntentBuilder.RequiredSequence<ALL_SET> parentRs;
 
-        public RequiredSequence(Bundle bundle, ALL_REQUIRED_SET_STATE allRequiredSetState) {
+        public RequiredSequence(Bundle bundle, ALL_SET allRequiredSetState) {
             super(bundle, allRequiredSetState);
             parentRs = new SuperClass__IntentBuilder.RequiredSequence<>(bundle, allRequiredSetState);
         }
 
-        public SuperClass__IntentBuilder.RequiredSequence<ALL_REQUIRED_SET_STATE> t(String t) {
+        public SuperClass__IntentBuilder.RequiredSequence<ALL_SET> t(String t) {
             bundle.putString("t", t);
             return parentRs;
         }
