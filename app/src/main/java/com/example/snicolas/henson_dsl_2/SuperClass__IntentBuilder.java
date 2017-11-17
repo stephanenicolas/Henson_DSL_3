@@ -5,33 +5,50 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.snicolas.henson_dsl_2.lib.AllRequiredSetState;
+import com.example.snicolas.henson_dsl_2.lib.RequiredStateSequence;
 
 import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClassDynamically;
 
 public class SuperClass__IntentBuilder {
 
-    private final SuperClass__IntentBuilderRequiredSequence<AllSet> rs0;
+    private final RequiredSequence<ResolvedAllSet> rs0;
 
     public SuperClass__IntentBuilder(Context context) {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.Foo"));
         final Bundle bundle = new Bundle();
-        final AllSet allSet = new AllSet(bundle, intent);
-        rs0 = new SuperClass__IntentBuilderRequiredSequence<>(bundle, allSet);
+        final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);
+        rs0 = new RequiredSequence<>(bundle, allSet);
     }
 
-    public SuperClass__IntentBuilder.AllSet s(String s) {
+    public ResolvedAllSet s(String s) {
         return rs0.s(s);
     }
 
-    public static class AllSet extends AllRequiredSetState {
+    public class ResolvedAllSet extends AllSet<ResolvedAllSet> {
+        public ResolvedAllSet(Bundle bundle, Intent intent) {
+            super(bundle, intent);
+        }
+    }
 
+    public static class RequiredSequence<ALL_REQUIRED_SET_STATE extends SuperClass__IntentBuilder.AllSet> extends RequiredStateSequence<ALL_REQUIRED_SET_STATE> {
+        public RequiredSequence(Bundle bundle, ALL_REQUIRED_SET_STATE allRequiredSetState) {
+            super(bundle, allRequiredSetState);
+        }
+
+        public ALL_REQUIRED_SET_STATE s(String s) {
+            bundle.putString("s", s);
+            return allRequiredSetState;
+        }
+    }
+
+    public static class AllSet<SELF extends AllSet<SELF>> extends AllRequiredSetState {
         public AllSet(Bundle bundle, Intent intent) {
             super(bundle, intent);
         }
 
-        public AllSet a(int a) {
+        public SELF a(int a) {
             bundle.putInt("a", a);
-            return this;
+            return (SELF) this;
         }
     }
 }

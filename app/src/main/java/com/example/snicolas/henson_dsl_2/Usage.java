@@ -16,15 +16,17 @@ public class Usage {
         new SubClass__IntentBuilder(null)
                 .t("t")
                 .s("s")
-                .b(0)
                 .a(1)
+                .b(0)
                 .build();
 
         new SubSubClass__IntentBuilder(null)
                 .u("u")
                 .t("t")
-                .c(0)
-                .a(1)
+                .s("s")
+                .a(0)
+                .c(2)
+                .b(1)
                 .build();
     }
 
