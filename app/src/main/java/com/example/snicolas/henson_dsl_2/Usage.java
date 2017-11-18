@@ -12,8 +12,20 @@ public class Usage {
         new SubClass__IntentBuilder(null)
                 .t("t")
                 .s("s")
-                .a(1)
-                .b(0)
+                .a(0)
+                .b(1)
+                .build();
+
+        new NoRequiredSubClass__IntentBuilder(null)
+                .s("s")
+                .b(1)
+                .a(0)
+                .build();
+
+        new NoOptionalSubClass__IntentBuilder(null)
+                .t("t")
+                .s("s")
+                .a(0)
                 .build();
 
         new SubSubClass__IntentBuilder(null)
