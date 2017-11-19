@@ -1,4 +1,4 @@
-package com.example.snicolas.henson_dsl_2;
+package com.example.snicolas.henson_dsl_2.tests.req_parent;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,19 +9,19 @@ import com.example.snicolas.henson_dsl_2.lib.RequiredStateSequence;
 import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClassDynamically;
 
 
-public class SubSubClass__IntentBuilder {
+public class BothSubClass__IntentBuilder {
 
     private final RequiredSequence<ResolvedAllSet> rs0;
 
-    public SubSubClass__IntentBuilder(Context context) {
+    public BothSubClass__IntentBuilder(Context context) {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
         final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);
         rs0 = new RequiredSequence<>(bundle, allSet);
     }
 
-    public SubClass__IntentBuilder.RequiredSequence<ResolvedAllSet> u(String s) {
-        return rs0.u(s);
+    public SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> t(String s) {
+        return rs0.t(s);
     }
 
     public static class ResolvedAllSet extends AllSet<ResolvedAllSet> {
@@ -30,27 +30,28 @@ public class SubSubClass__IntentBuilder {
         }
     }
 
-    public static class RequiredSequence<ALL_STATE extends AllSet> extends RequiredStateSequence<ALL_STATE> {
-        final SubClass__IntentBuilder.RequiredSequence<ALL_STATE> parentRs;
+    public static class RequiredSequence<ALL_SET extends AllSet>
+            extends RequiredStateSequence<ALL_SET> {
+        final SuperClass__IntentBuilder.RequiredSequence<ALL_SET> parentRs;
 
-        public RequiredSequence(Bundle bundle, ALL_STATE allRequiredSetState) {
+        public RequiredSequence(Bundle bundle, ALL_SET allRequiredSetState) {
             super(bundle, allRequiredSetState);
-            parentRs = new SubClass__IntentBuilder.RequiredSequence<>(bundle, allRequiredSetState);
+            parentRs = new SuperClass__IntentBuilder.RequiredSequence<>(bundle, allRequiredSetState);
         }
 
-        public SubClass__IntentBuilder.RequiredSequence<ALL_STATE> u(String u) {
-            bundle.putString("u", u);
+        public SuperClass__IntentBuilder.RequiredSequence<ALL_SET> t(String t) {
+            bundle.putString("t", t);
             return parentRs;
         }
     }
 
-    public static class AllSet<SELF extends AllSet<SELF>> extends SubClass__IntentBuilder.AllSet<SELF> {
+    public static class AllSet<SELF extends AllSet<SELF>> extends SuperClass__IntentBuilder.AllSet<SELF> {
         public AllSet(Bundle bundle, Intent intent) {
             super(bundle, intent);
         }
 
-        public SELF c(int c) {
-            bundle.putInt("c", c);
+        public SELF b(int b) {
+            bundle.putInt("b", b);
             return (SELF) this;
         }
     }

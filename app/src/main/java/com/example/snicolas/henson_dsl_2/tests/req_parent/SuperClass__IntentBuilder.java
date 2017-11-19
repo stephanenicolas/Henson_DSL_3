@@ -1,4 +1,4 @@
-package com.example.snicolas.henson_dsl_2;
+package com.example.snicolas.henson_dsl_2.tests.req_parent;
 
 import android.content.Context;
 import android.content.Intent;
@@ -45,11 +45,6 @@ public class SuperClass__IntentBuilder {
     public static class AllSet<SELF extends AllSet<SELF>> extends AllRequiredSetState {
         public AllSet(Bundle bundle, Intent intent) {
             super(bundle, intent);
-        }
-
-        public SELF a(int a) {
-            bundle.putInt("a", a);
-            return (SELF) this;
         }
     }
 }

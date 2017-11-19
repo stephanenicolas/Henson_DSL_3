@@ -1,4 +1,4 @@
-package com.example.snicolas.henson_dsl_2;
+package com.example.snicolas.henson_dsl_2.tests.both_parent;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,11 +9,11 @@ import com.example.snicolas.henson_dsl_2.lib.RequiredStateSequence;
 import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClassDynamically;
 
 
-public class NoOptionalSubClass__IntentBuilder {
+public class ReqSubClass__IntentBuilder {
 
     private final RequiredSequence<ResolvedAllSet> rs0;
 
-    public NoOptionalSubClass__IntentBuilder(Context context) {
+    public ReqSubClass__IntentBuilder(Context context) {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
         final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);

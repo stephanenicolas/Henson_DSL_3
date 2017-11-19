@@ -1,9 +1,5 @@
-package com.example.snicolas.henson_dsl_2;
+package com.example.snicolas.henson_dsl_2.tests.both_parent;
 
-import com.example.snicolas.henson_dsl_2.tests.both_parent.ReqSubClass__IntentBuilder;
-import com.example.snicolas.henson_dsl_2.tests.both_parent.OptSubClass__IntentBuilder;
-import com.example.snicolas.henson_dsl_2.tests.both_parent.BothSubClass__IntentBuilder;
-import com.example.snicolas.henson_dsl_2.tests.both_parent.SuperClass__IntentBuilder;
 import com.example.snicolas.henson_dsl_2.tests.subsub.SubSubClass__IntentBuilder;
 
 public class Usage {
