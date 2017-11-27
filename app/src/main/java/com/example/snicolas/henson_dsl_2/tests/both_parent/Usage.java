@@ -21,18 +21,21 @@ public class Usage {
                 .build();
 
         new OptSubClass__IntentBuilder(null)
+                .getInitialState()
                 .s("s")
                 .b(1)
                 .a(0)
                 .build();
 
         new ReqSubClass__IntentBuilder(null)
+                .getInitialState()
                 .t("t")
                 .s("s")
                 .a(0)
                 .build();
 
         new SubSubClass__IntentBuilder(null)
+                .getInitialState()
                 .u("u")
                 .t("t")
                 .s("s")

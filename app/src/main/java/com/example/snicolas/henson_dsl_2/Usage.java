@@ -11,11 +11,13 @@ public class Usage {
     public static void main() {
 
         new SuperClass__IntentBuilder(null)
+                .getInitialState()
                 .s("a")
                 .a(0)
                 .build();
 
         new BothSubClass__IntentBuilder(null)
+                .getInitialState()
                 .t("t")
                 .s("s")
                 .a(0)
@@ -35,6 +37,7 @@ public class Usage {
                 .build();
 
         new SubSubClass__IntentBuilder(null)
+                .getInitialState()
                 .u("u")
                 .t("t")
                 .s("s")

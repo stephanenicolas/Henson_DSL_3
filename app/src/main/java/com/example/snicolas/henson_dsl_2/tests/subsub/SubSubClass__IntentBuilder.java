@@ -12,17 +12,22 @@ import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClass
 
 public class SubSubClass__IntentBuilder {
 
-    private final RequiredSequence<ResolvedAllSet> rs0;
+
+    private Context context;
 
     public SubSubClass__IntentBuilder(Context context) {
+        this.context = context;
+    }
+
+    public RequiredSequence<ResolvedAllSet> getInitialState() {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
         final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);
-        rs0 = new RequiredSequence<>(bundle, allSet);
+        return new RequiredSequence<>(bundle, allSet);
     }
 
-    public BothSubClass__IntentBuilder.RequiredSequence<ResolvedAllSet> u(String s) {
-        return rs0.u(s);
+    public static <T extends AllSet> RequiredSequence<T> getInitialState(Bundle bundle, T allSetState) {
+        return new RequiredSequence<>(bundle, allSetState);
     }
 
     public static class ResolvedAllSet extends AllSet<ResolvedAllSet> {
@@ -32,16 +37,14 @@ public class SubSubClass__IntentBuilder {
     }
 
     public static class RequiredSequence<ALL_STATE extends AllSet> extends RequiredStateSequence<ALL_STATE> {
-        final BothSubClass__IntentBuilder.RequiredSequence<ALL_STATE> parentRs;
 
         public RequiredSequence(Bundle bundle, ALL_STATE allRequiredSetState) {
             super(bundle, allRequiredSetState);
-            parentRs = new BothSubClass__IntentBuilder.RequiredSequence<>(bundle, allRequiredSetState);
         }
 
         public BothSubClass__IntentBuilder.RequiredSequence<ALL_STATE> u(String u) {
             bundle.putString("u", u);
-            return parentRs;
+            return BothSubClass__IntentBuilder.getInitialState(bundle, allRequiredSetState);
         }
     }
 

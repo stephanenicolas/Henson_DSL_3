@@ -11,17 +11,22 @@ import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClass
 
 public class ReqSubClass__IntentBuilder {
 
-    private final RequiredSequence<ResolvedAllSet> rs0;
+
+    private Context context;
 
     public ReqSubClass__IntentBuilder(Context context) {
+        this.context = context;
+    }
+
+    public RequiredSequence<ResolvedAllSet> getInitialState() {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
         final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);
-        rs0 = new RequiredSequence<>(bundle, allSet);
+        return new RequiredSequence<>(bundle, allSet);
     }
 
-    public SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> t(String s) {
-        return rs0.t(s);
+    public static <T extends AllSet> RequiredSequence<T> getInitialState(Bundle bundle, T allSetState) {
+        return new RequiredSequence<>(bundle, allSetState);
     }
 
     public static class ResolvedAllSet extends AllSet<ResolvedAllSet> {
