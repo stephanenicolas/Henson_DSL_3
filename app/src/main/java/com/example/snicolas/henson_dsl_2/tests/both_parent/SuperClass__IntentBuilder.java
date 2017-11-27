@@ -18,21 +18,15 @@ public class SuperClass__IntentBuilder {
         this.context = context;
     }
 
-    public RequiredSequence<ResolvedAllSet> getInitialState() {
+    public <T extends AllSet<T>> RequiredSequence<AllSet<T>> getInitialState() {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.Foo"));
         final Bundle bundle = new Bundle();
-        final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);
+        final AllSet<T> allSet = new AllSet<>(bundle, intent);
         return new RequiredSequence<>(bundle, allSet);
     }
 
     public static <T extends AllSet> RequiredSequence<T> getInitialState(Bundle bundle, T allSetState) {
         return new RequiredSequence<>(bundle, allSetState);
-    }
-
-    public class ResolvedAllSet extends AllSet<ResolvedAllSet> {
-        public ResolvedAllSet(Bundle bundle, Intent intent) {
-            super(bundle, intent);
-        }
     }
 
     public static class RequiredSequence<ALL_SET extends SuperClass__IntentBuilder.AllSet>

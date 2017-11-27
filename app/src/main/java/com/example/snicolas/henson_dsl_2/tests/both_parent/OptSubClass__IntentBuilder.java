@@ -15,21 +15,15 @@ public class OptSubClass__IntentBuilder {
         this.context = context;
     }
 
-    public SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> getInitialState() {
+    public <T extends AllSet<T>> SuperClass__IntentBuilder.RequiredSequence<AllSet<T>> getInitialState() {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
-        final ResolvedAllSet resolvedAllSet = new ResolvedAllSet(bundle, intent);
-        return SuperClass__IntentBuilder.getInitialState(bundle, resolvedAllSet);
+        final AllSet<T> allSet = new AllSet<>(bundle, intent);
+        return SuperClass__IntentBuilder.getInitialState(bundle, allSet);
     }
 
     public static <T extends AllSet> SuperClass__IntentBuilder.RequiredSequence<T> getInitialState(Bundle bundle, T allSetState) {
         return SuperClass__IntentBuilder.getInitialState(bundle, allSetState);
-    }
-
-    public static class ResolvedAllSet extends AllSet<ResolvedAllSet> {
-        public ResolvedAllSet(Bundle bundle, Intent intent) {
-            super(bundle, intent);
-        }
     }
 
     public static class AllSet<SELF extends AllSet<SELF>> extends SuperClass__IntentBuilder.AllSet<SELF> {

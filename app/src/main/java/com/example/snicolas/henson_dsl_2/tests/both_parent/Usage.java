@@ -4,8 +4,8 @@ import com.example.snicolas.henson_dsl_2.tests.subsub.SubSubClass__IntentBuilder
 
 public class Usage {
 
-    public static void main() {
 
+    public static void main() {
         new SuperClass__IntentBuilder(null)
                 .getInitialState()
                 .s("a")
