@@ -6,29 +6,29 @@ public class Usage {
 
     public static void main() {
 
-        new SuperClass__IntentBuilder(null)
-                .getInitialState()
+        new SuperClass__IntentBuilder()
+                .getInitialState(null)
                 .s("a")
                 .a(0)
                 .build();
 
-        new BothSubClass__IntentBuilder(null)
-                .getInitialState()
+        new BothSubClass__IntentBuilder()
+                .getInitialState(null)
                 .t("t")
                 .s("s")
                 .a(0)
                 .b(1)
                 .build();
 
-        new OptSubClass__IntentBuilder(null)
-                .getInitialState()
+        new OptSubClass__IntentBuilder()
+                .getInitialState(null)
                 .s("s")
                 .b(1)
                 .a(0)
                 .build();
 
-        new ReqSubClass__IntentBuilder(null)
-                .getInitialState()
+        new ReqSubClass__IntentBuilder()
+                .getInitialState(null)
                 .t("t")
                 .s("s")
                 .a(0)

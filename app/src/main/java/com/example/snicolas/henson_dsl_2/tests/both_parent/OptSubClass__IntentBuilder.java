@@ -9,20 +9,14 @@ import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClass
 
 public class OptSubClass__IntentBuilder {
 
-    private Context context;
-
-    public OptSubClass__IntentBuilder(Context context) {
-        this.context = context;
-    }
-
-    public SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> getInitialState() {
+    public SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> getInitialState(Context context) {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
         final ResolvedAllSet resolvedAllSet = new ResolvedAllSet(bundle, intent);
         return SuperClass__IntentBuilder.getInitialState(bundle, resolvedAllSet);
     }
 
-    public static <T extends AllSet> SuperClass__IntentBuilder.RequiredSequence<T> getInitialState(Bundle bundle, T allSetState) {
+    public static <ALL_SET extends AllSet> SuperClass__IntentBuilder.RequiredSequence<ALL_SET> getInitialState(Bundle bundle, ALL_SET allSetState) {
         return SuperClass__IntentBuilder.getInitialState(bundle, allSetState);
     }
 
