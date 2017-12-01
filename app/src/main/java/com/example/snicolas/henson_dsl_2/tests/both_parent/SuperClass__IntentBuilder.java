@@ -10,7 +10,7 @@ import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClass
 
 public class SuperClass__IntentBuilder {
 
-    public RequiredSequence<ResolvedAllSet> getInitialState(Context context) {
+    public static RequiredSequence<ResolvedAllSet> getInitialState(Context context) {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.Foo"));
         final Bundle bundle = new Bundle();
         final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);
@@ -21,7 +21,7 @@ public class SuperClass__IntentBuilder {
         return new RequiredSequence<>(bundle, allSetState);
     }
 
-    public class ResolvedAllSet extends AllSet<ResolvedAllSet> {
+    public static class ResolvedAllSet extends AllSet<ResolvedAllSet> {
         public ResolvedAllSet(Bundle bundle, Intent intent) {
             super(bundle, intent);
         }

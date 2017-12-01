@@ -9,7 +9,7 @@ import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClass
 
 public class ReqSubClass__IntentBuilder {
 
-    public RequiredSequence<ResolvedAllSet> getInitialState(Context context) {
+    public static RequiredSequence<ResolvedAllSet> getInitialState(Context context) {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
         final ResolvedAllSet allSet = new ResolvedAllSet(bundle, intent);
@@ -33,10 +33,19 @@ public class ReqSubClass__IntentBuilder {
             super(bundle, allRequiredSetState);
         }
 
-        public SuperClass__IntentBuilder.RequiredSequence<ALL_SET> t(String t) {
-            bundle.putString("t", t);
-            return SuperClass__IntentBuilder.getInitialState(bundle, allRequiredSetState);
+        public AfterSettingR r(String r) {
+            bundle.putString("r", r);
+            return new AfterSettingR();
         }
+
+        public class AfterSettingR {
+            public SuperClass__IntentBuilder.RequiredSequence<ALL_SET> t(String t) {
+                bundle.putString("t", t);
+                return SuperClass__IntentBuilder.getInitialState(bundle, allRequiredSetState);
+            }
+        }
+
+
     }
 
     public static class AllSet<SELF extends AllSet<SELF>> extends SuperClass__IntentBuilder.AllSet<SELF> {

@@ -6,52 +6,62 @@ public class Usage {
 
     public static void main() {
 
-        new SuperClass__IntentBuilder(null)
-                .build();
+        SuperClass__IntentBuilder
+            .getInitialState(null)
+            .build();
 
-        new SuperClass__IntentBuilder(null)
-                .a(0)
-                .build();
+        SuperClass__IntentBuilder
+            .getInitialState(null)
+            .a(0)
+            .build();
 
-        new BothSubClass__IntentBuilder(null)
-                .t("t")
-                .build();
+        BothSubClass__IntentBuilder
+            .getInitialState(null)
+            .t("t")
+            .build();
 
-        new BothSubClass__IntentBuilder(null)
-                .t("t")
-                .a(0)
-                .build();
+        BothSubClass__IntentBuilder
+            .getInitialState(null)
+            .t("t")
+            .a(0)
+            .build();
 
-        new BothSubClass__IntentBuilder(null)
-                .t("t")
-                .b(1)
-                .build();
+        BothSubClass__IntentBuilder
+            .getInitialState(null)
+            .t("t")
+            .b(1)
+            .build();
 
-        new BothSubClass__IntentBuilder(null)
-                .t("t")
-                .a(0)
-                .b(1)
-                .build();
+        BothSubClass__IntentBuilder
+            .getInitialState(null)
+            .t("t")
+            .a(0)
+            .b(1)
+            .build();
 
-        new OptSubClass__IntentBuilder(null)
-                .build();
+        OptSubClass__IntentBuilder
+            .getInitialState(null)
+            .build();
 
-        new OptSubClass__IntentBuilder(null)
-                .a(0)
-                .build();
+        OptSubClass__IntentBuilder
+            .getInitialState(null)
+            .a(0)
+            .build();
 
-        new OptSubClass__IntentBuilder(null)
-                .b(1)
-                .build();
+        OptSubClass__IntentBuilder
+            .getInitialState(null)
+            .b(1)
+            .build();
 
-        new ReqSubClass__IntentBuilder(null)
-                .t("t")
-                .build();
+        ReqSubClass__IntentBuilder
+            .getInitialState(null)
+            .t("t")
+            .build();
 
-        new ReqSubClass__IntentBuilder(null)
-                .t("t")
-                .a(0)
-                .build();
+        ReqSubClass__IntentBuilder
+            .getInitialState(null)
+            .t("t")
+            .a(0)
+            .build();
     }
-
 }
