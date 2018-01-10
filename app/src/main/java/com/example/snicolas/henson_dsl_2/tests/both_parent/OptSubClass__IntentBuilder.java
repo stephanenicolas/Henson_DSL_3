@@ -6,18 +6,22 @@ import android.os.Bundle;
 
 import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClassDynamically;
 
-
 public class OptSubClass__IntentBuilder {
 
-    public static SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> getInitialState(Context context) {
+    public static InitialState getInitialState(Context context) {
         final Intent intent = new Intent(context, getClassDynamically("com.example.module1.FooSub"));
         final Bundle bundle = new Bundle();
-        final ResolvedAllSet resolvedAllSet = new ResolvedAllSet(bundle, intent);
-        return SuperClass__IntentBuilder.getInitialState(bundle, resolvedAllSet);
+        return new InitialState(bundle, intent);
     }
 
-    public static <ALL_SET extends AllSet> SuperClass__IntentBuilder.RequiredSequence<ALL_SET> getInitialState(Bundle bundle, ALL_SET allSetState) {
-        return SuperClass__IntentBuilder.getInitialState(bundle, allSetState);
+    public static <ALL_SET extends AllSet> SuperClass__IntentBuilder.RequiredSequence<ALL_SET> getNextState(Bundle bundle, ALL_SET allSetState) {
+        return SuperClass__IntentBuilder.getNextState(bundle, allSetState);
+    }
+
+    public static class InitialState extends SuperClass__IntentBuilder.RequiredSequence<ResolvedAllSet> {
+        public InitialState(Bundle bundle, Intent intent) {
+            super(bundle, new ResolvedAllSet(bundle, intent));
+        }
     }
 
     public static class ResolvedAllSet extends AllSet<ResolvedAllSet> {

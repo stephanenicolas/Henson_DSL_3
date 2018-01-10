@@ -44,7 +44,7 @@ public class SubSubClass__IntentBuilder {
 
         public BothSubClass__IntentBuilder.RequiredSequence<ALL_STATE> u(String u) {
             bundle.putString("u", u);
-            return BothSubClass__IntentBuilder.getInitialState(bundle, allRequiredSetState);
+            return BothSubClass__IntentBuilder.getNextState(bundle, allRequiredSetState);
         }
     }
 

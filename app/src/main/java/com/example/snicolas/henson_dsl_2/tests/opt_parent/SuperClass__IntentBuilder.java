@@ -9,14 +9,20 @@ import static com.example.snicolas.henson_dsl_2.lib.ActivityClassFinder.getClass
 
 public class SuperClass__IntentBuilder {
 
-  public static ResolvedAllSet getInitialState(Context context) {
+  public static InitialState getInitialState(Context context) {
     final Intent intent = new Intent(context, getClassDynamically("com.example.module1.Foo"));
     final Bundle bundle = new Bundle();
-    return new ResolvedAllSet(bundle, intent);
+    return new InitialState(bundle, intent);
   }
 
-  public static <ALL_SET extends AllSet> ALL_SET getInitialState(Bundle bundle, ALL_SET allSetState) {
+  public static <ALL_SET extends AllSet> ALL_SET getNextState(Bundle bundle, ALL_SET allSetState) {
     return allSetState;
+  }
+
+  public static class InitialState extends ResolvedAllSet {
+    public InitialState(Bundle bundle, Intent intent) {
+      super(bundle, intent);
+    }
   }
 
   public static class ResolvedAllSet extends AllSet<ResolvedAllSet> {
